@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('../assets/Background.jfif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: 'Questrial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.reset-title {
+    font-size: 42px;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.reset-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.reset-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.20);
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 15px 30px;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    font-size: 24px;
+    outline: none;
+}
+
+.reset-input:-webkit-autofill,
+.reset-input:-webkit-autofill:hover, 
+.reset-input:-webkit-autofill:focus, 
+.reset-input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}
+
+.reset-input::placeholder {
+    color: white;
+    opacity: 0.9;
+}
+
+.reset-btn {
+    background-color: #0d1326;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    font-size: 32px;
+    padding: 10px 40px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.reset-btn:hover {
+    opacity: 0.8;
+}
+
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.success-overlay.show {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.success-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-stack {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.star-icon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.check-icon {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: invert(10%) sepia(19%) saturate(1914%) hue-rotate(189deg) brightness(96%) contrast(97%);
+}
+
+.cross-icon {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.success-content h2 {
+    font-size: 38px;
+    color: white;
+    font-weight: 400;
+}

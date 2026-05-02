@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    background: url('../assets/Background.jfif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Pembungkus Utama */
+.passcode-container {
+    display: flex;
+    align-items: center;
+    gap: 120px; /* Jarak antara kiri (teks) dan kanan (keypad) */
+}
+
+/* --- KIRI: Teks & Indikator Titik --- */
+.passcode-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passcode-left h2 {
+    color: white;
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.indicators {
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 24px;
+    height: 24px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.dot.filled {
+    background-color: white;
+}
+
+/* --- Animasi Getar (Shake) untuk Passcode Salah --- */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+.shake-animation {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* --- KANAN: Keypad & Tautan --- */
+.passcode-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px); /* 3 Kolom tombol bulat */
+    gap: 25px 30px; /* Jarak vertikal dan horizontal antar tombol */
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+/* Gaya Tombol Lingkaran */
+.key-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.key-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Tombol Hapus (SVG) */
+.delete-btn {
+    border: none;
+    background: transparent;
+    width: 60px;
+    border-radius: 0;
+}
+
+.delete-btn:hover {
+    background: transparent;
+    opacity: 0.8;
+}
+
+.delete-btn svg {
+    transform: scaleX(-1);
+}
+
+/* Tombol Teks (OK) */
+.text-btn {
+    border: none;
+    background: transparent;
+    text-underline-offset: 6px;
+    font-size: 28px;
+}
+
+/* Tautan Bawah (Reset & Cancel) */
+.action-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.action-links a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.action-links a:hover {
+    opacity: 0.8;
+}

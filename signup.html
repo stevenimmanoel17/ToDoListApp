@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDL App - Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="icon" type="image/png" href="assets/Icon TDL.png">
+</head>
+<body>
+    <main class="auth-wrapper">
+        <h2 class="auth-title">Create New User!</h2>
+
+        <form class="auth-form" id="signupForm">
+            <div class="form-row">
+                <label class="form-label" for="email">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" class="auth-input" placeholder="youremail@gmail.com" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label" for="passcode">Passcode</label>
+                <div class="input-wrapper">
+                    <input type="password" id="passcode" class="auth-input" required>
+                    <svg id="eye-passcode" class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <label class="form-label" for="verif-passcode">Verif - Passcode</label>
+                <div class="input-wrapper">
+                    <input type="password" id="verif-passcode" class="auth-input" required>
+                    <svg id="eye-verif" class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 12 15 10.34 13.66 9 12 9Z" fill="white"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="empty-space"></div> <div class="btn-group">
+                    <button type="submit" class="btn">Create</button>
+                    <button type="button" class="btn" onclick="window.location.href='index.html'">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star Background" class="star-icon">
+                <img src="assets/True.svg" alt="Checkmark" class="check-icon">
+            </div>
+            <h2>New user added successfully.</h2>
+        </div>
+    </div>
+    <div id="failedOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star Background" class="star-icon">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#181937" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>New user failed to add.</h2>
+        </div>
+    </div>
+<script src="js/signup.js"></script>
+</body>
+</html>

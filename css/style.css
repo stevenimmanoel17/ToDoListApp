@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('../assets/Background.jfif') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative; 
+}
+
+/* --- Navigasi Kanan Atas --- */
+.top-nav {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    display: flex;
+    gap: 30px;
+    z-index: 10;
+}
+
+.nav-link {
+    font-family: 'Questrial', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 26px;
+}
+
+/* --- Area Konten Utama --- */
+.hero-section {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.logo-group {
+    /* Penempatan presisi di tengah layar */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.clock-icon {
+    width: 220px;
+    height: 220px;
+}
+
+/* Animasi Jarum Jam */
+.clock-hands {
+    transform-origin: 49.9792px 49.974px; 
+    animation: rotateHands 12s linear infinite; 
+}
+
+@keyframes rotateHands {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- Gaya Teks TDL App! --- */
+.brand-name {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 222px;
+    color: #e6e6e6; 
+    letter-spacing: -6px; 
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap; 
+    text-shadow: /* Efek Echo */
+        4px 4px 0 #7A241A,
+        8px 8px 0 #551812; 
+    /* Animasi Typing: Tempo 4 detik, 8 langkah huruf, berulang (infinite) */
+    animation: typing 4s steps(8, end) infinite;
+}
+
+/* Keyframes untuk Animasi Typing */
+@keyframes typing {
+    /* Mulai: Teks tertutup penuh dari arah kanan */
+    0% { 
+        clip-path: inset(0 100% -20px 0); 
+    } 
+    /* Tengah: Teks terbuka penuh (dikurangi -20px agar bayangan tidak terpotong) */
+    50%, 85% { 
+        clip-path: inset(0 -20px -20px 0); 
+    } 
+    /* Akhir: Menghapus teks kembali ke awal */
+    100% { 
+        clip-path: inset(0 100% -20px 0); 
+    } 
+}

@@ -1,0 +1,581 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
+}
+
+body {
+    background: url('../assets/Background.jfif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px 20px 60px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left h1 {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.power-icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    width: 350px;
+}
+
+.search-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    outline: none;
+    font-family: 'Questrial', sans-serif;
+}
+
+.search-container input::placeholder {
+    color: white;
+}
+
+.add-task-btn {
+    background: #11152B;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px;
+    font-size: 24px;
+    font-family: 'Questrial', sans-serif;
+    cursor: pointer;
+}
+
+.app-main {
+    display: flex;
+    padding: 10px 60px;
+    gap: 40px;
+    height: calc(100vh - 120px);
+}
+
+.main-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.dropdown-container {
+    position: relative;
+    width: 200px;
+}
+
+.dropdown-btn {
+    background: #11152B;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 22px;
+    font-family: 'Questrial', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(180, 180, 190, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 20px;
+    color: #181937;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    color: white;
+    background: #181937;
+}
+
+.task-area {
+    flex: 1;
+    position: relative;
+}
+
+.empty-state {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed white;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.empty-state p {
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    height: 100%;
+    padding-right: 15px;
+}
+
+.task-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.task-item {
+    background: #E2E2E2;
+    border-radius: 30px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #11152B;
+}
+
+.task-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-progress { background: #FF9B71; }
+.dot-finished { background: #11152B; }
+.dot-notfinished { background: #C93B2B; }
+
+.task-name {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.task-date {
+    font-size: 26px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.edit-btn { background: #11152B; }
+.delete-btn { background: #C93B2B; }
+.action-btn svg { width: 20px; height: 20px; }
+
+.main-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.calendar-widget {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.calendar-nav svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.day-name {
+    margin-bottom: 10px;
+}
+
+.active-date {
+    background: #C93B2B;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.active-date-alt {
+    background: #11152B;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.active-date-alt2 {
+    background: #FF9B71;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.legend-area {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 20, 35, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.modal-content {
+    background: #181937;
+    padding: 30px;
+    border-radius: 20px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-group label {
+    font-size: 24px;
+    color: white;
+}
+
+.modal-input {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    outline: none;
+    font-family: 'Questrial', sans-serif;
+}
+
+.modal-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background: white;
+    color: #181937;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 22px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Questrial', sans-serif;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 22px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Questrial', sans-serif;
+}
+
+.success-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 20, 35, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.success-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-stack {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.star-icon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.check-icon {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.success-content h2 {
+    font-size: 38px;
+    color: white;
+    font-weight: 400;
+}
+
+.status-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.status-option {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.status-option input[type="radio"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.status-option input[type="radio"]::before {
+    content: "✓";
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: transparent;
+}
+
+.status-option input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+.status-option .dot {
+    width: 18px;
+    height: 18px;
+}
+
+.delete-text-modal h3 {
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.delete-text-modal p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.calendar-day {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.date-progress {
+    background: #FF9B71;
+    color: #11152B;
+}
+
+.date-notfinished {
+    background: #C93B2B;
+    color: white;
+}
+
+.date-finished {
+    background: #11152B;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.selected-date {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}

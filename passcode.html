@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDL App - Enter Passcode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/passcode.css">
+    <link rel="icon" type="image/png" href="assets/Icon TDL.png">
+</head>
+<body>
+    <div class="passcode-container">
+        <div class="passcode-left">
+            <h2>Enter Passcode</h2>
+            <div class="indicators" id="indicators">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <div class="passcode-right">
+            <div class="keypad">
+                <button class="key-btn" onclick="pressKey('1')">1</button>
+                <button class="key-btn" onclick="pressKey('2')">2</button>
+                <button class="key-btn" onclick="pressKey('3')">3</button>
+                
+                <button class="key-btn" onclick="pressKey('4')">4</button>
+                <button class="key-btn" onclick="pressKey('5')">5</button>
+                <button class="key-btn" onclick="pressKey('6')">6</button>
+                
+                <button class="key-btn" onclick="pressKey('7')">7</button>
+                <button class="key-btn" onclick="pressKey('8')">8</button>
+                <button class="key-btn" onclick="pressKey('9')">9</button>
+                
+                <button class="key-btn delete-btn" onclick="deleteKey()">
+                    <svg width="60" height="36" viewBox="0 0 60 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 2 L3 18 L18 34 H45 C54 34 60 28 60 18 C60 8 54 2 45 2 Z" fill="white"/>
+                        <path d="M26 12 L36 24 M36 12 L26 24" stroke="#151A2E" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                
+                <button class="key-btn" onclick="pressKey('0')">0</button>
+                
+                <button class="key-btn text-btn" onclick="submitPasscode()">OK</button>
+            </div>
+
+            <div class="action-links">
+                <a href="reset.html">Reset</a>
+                <a href="index.html">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/passcode.js"></script>
+</body>
+</html>

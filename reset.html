@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDL App - Reset Passcode</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="icon" type="image/png" href="assets/Icon TDL.png">
+</head>
+<body>
+    <main class="reset-container" id="step-email">
+        <h2 class="reset-title">Enter your Email!</h2>
+        <form id="emailForm" class="reset-form">
+            <input type="email" id="reset-email" class="reset-input" placeholder="youremail@gmail.com" required>
+            <button type="submit" class="reset-btn">Send</button>
+        </form>
+    </main>
+
+    <main class="reset-container hidden" id="step-passcode">
+        <h2 class="reset-title">Create your new passcode.</h2>
+        <form id="newPasscodeForm" class="reset-form">
+            <input type="password" id="new-passcode" class="reset-input" required>
+            <button type="submit" class="reset-btn">Create</button>
+        </form>
+    </main>
+
+    <div id="falseEmailOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <svg class="cross-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#181937" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h2>The email hasn't arrived, it can't be you.</h2>
+        </div>
+    </div>
+
+    <div id="trueEmailOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>The email has arrived, it must be you!</h2>
+        </div>
+    </div>
+
+    <div id="successPasscodeOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>New Passcode Success.</h2>
+        </div>
+    </div>
+
+    <script src="js/reset.js"></script>
+</body>
+</html>

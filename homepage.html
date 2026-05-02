@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDL App - Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="icon" type="image/png" href="assets/Icon TDL.png">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-left">
+            <h1>To Do-List</h1>
+            <svg id="logoutIconBtn" class="power-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2V12M18.36 5.64C19.6183 6.8988 20.4753 8.50246 20.8223 10.2482C21.1693 11.994 20.9905 13.8033 20.3096 15.4478C19.6288 17.0922 18.4764 18.498 16.999 19.4883C15.5217 20.4786 13.786 21.0094 12 21.0094C10.214 21.0094 8.47829 20.4786 7.00095 19.4883C5.52361 18.498 4.37123 17.0922 3.69037 15.4478C3.00951 13.8033 2.83069 11.994 3.17769 10.2482C3.52469 8.50246 4.38171 6.8988 5.64 5.64" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="header-right">
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <input type="text" id="taskInput" placeholder="Search your task here">
+            </div>
+            <button class="add-task-btn" id="addTaskBtn">+ Add Task</button>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="main-left">
+            <div class="filter-section">
+                <div class="dropdown-container">
+                    <button class="dropdown-btn" id="dropdownBtn">
+                        All Progress
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div class="dropdown-item">All Progress</div>
+                        <div class="dropdown-item">In Progress</div>
+                        <div class="dropdown-item">Not Finished</div>
+                        <div class="dropdown-item">Finished</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-area">
+                <div id="emptyState" class="empty-state">
+                    <p>Not task yet.<br>Start by adding your first task today.</p>
+                </div>
+                
+                <div id="taskList" class="task-list hidden"></div>
+            </div>
+        </div>
+
+        <div class="main-right">
+            <div class="calendar-widget">
+                <div class="calendar-header">
+                    <span>April 2026</span>
+                    <div class="calendar-nav">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M6 9L12 15L18 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M18 15L12 9L6 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="day-name">Min</div><div class="day-name">Sen</div><div class="day-name">Sel</div><div class="day-name">Rab</div><div class="day-name">Kam</div><div class="day-name">Jum</div><div class="day-name">Sab</div>
+                    <div></div><div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div>
+                    <div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+                    <div>12</div><div>13</div><div>14</div><div class="active-date">15</div><div>16</div><div>17</div><div>18</div>
+                    <div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
+                    <div>26</div><div class="active-date-alt">27</div><div class="active-date-alt2">28</div><div>29</div><div>30</div><div></div><div></div>
+                </div>
+            </div>
+            
+            <div class="legend-area">
+                <div class="legend-item">
+                    <span class="dot dot-progress"></span> In progress
+                </div>
+                <div class="legend-item">
+                    <span class="dot dot-notfinished"></span> Not finished
+                </div>
+                <div class="legend-item">
+                    <span class="dot dot-finished"></span> Finished
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div id="addTaskModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="form-group">
+                <label>Task Name</label>
+                <input type="text" id="newTaskName" class="modal-input">
+            </div>
+            <div class="form-group">
+                <label>Due Date</label>
+                <input type="date" id="newTaskDate" class="modal-input">
+            </div>
+            <div class="modal-actions">
+                <button id="confirmAddBtn" class="btn-primary">Add Task</button>
+                <button id="cancelAddBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addTaskSuccess" class="success-overlay hidden">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>Add Task Success.</h2>
+        </div>
+    </div>
+
+    <div id="editTaskModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="form-group">
+                <label>Task Name</label>
+                <input type="text" id="editTaskName" class="modal-input">
+            </div>
+            <div class="form-group">
+                <label>Due Date</label>
+                <input type="date" id="editTaskDate" class="modal-input">
+            </div>
+            <div class="status-group">
+                <label class="status-option">
+                    <input type="radio" name="taskStatus" value="progress">
+                    <span class="dot dot-progress"></span> In progress
+                </label>
+                <label class="status-option">
+                    <input type="radio" name="taskStatus" value="notfinished">
+                    <span class="dot dot-notfinished"></span> Not Finished
+                </label>
+                <label class="status-option">
+                    <input type="radio" name="taskStatus" value="finished">
+                    <span class="dot dot-finished" style="border: 1px solid rgba(255,255,255,0.3);"></span> Finished
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button id="confirmEditBtn" class="btn-primary">Edit Task</button>
+                <button id="cancelEditBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteTaskModal" class="modal-overlay hidden">
+        <div class="modal-content delete-text-modal">
+            <h3>Delete Task</h3>
+            <p>Are you sure you want to delete this task?</p>
+            <div class="modal-actions">
+                <button id="confirmDeleteBtn" class="btn-primary">Delete Task</button>
+                <button id="cancelDeleteBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="editTaskSuccess" class="success-overlay hidden">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>Edit Task Success.</h2>
+        </div>
+    </div>
+
+    <div id="deleteTaskSuccess" class="success-overlay hidden">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>Delete Task Success.</h2>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal-overlay hidden">
+        <div class="modal-content delete-text-modal">
+            <h3>Log Out</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+                <button id="confirmLogoutBtn" class="btn-primary">Log Out</button>
+                <button id="cancelLogoutBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutSuccess" class="success-overlay hidden">
+        <div class="success-content">
+            <div class="icon-stack">
+                <img src="assets/20 pointed star.svg" alt="Star" class="star-icon">
+                <img src="assets/True.svg" alt="Check" class="check-icon">
+            </div>
+            <h2>Log Out Success.</h2>
+        </div>
+    </div>
+
+    <script src="js/homepage.js"></script>
+</body>
+</html>
